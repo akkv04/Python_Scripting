@@ -1,1 +1,10 @@
 
+import git #imports the modules
+
+
+repo_url=""  #provide the repo url of the remote repo
+local_path= "" #provide the path where you want to  checkout
+#provide the name in the local path for hte name  of the local repo
+
+#this will clone the repo
+git.Repo.clone_from(repo_url,local_path)
