@@ -1,4 +1,4 @@
-
+#basics of gipython module will be mentioned in the python scripts in gitpython  folder
 import git #imports the modules
 
 
