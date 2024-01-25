@@ -1,0 +1,20 @@
+The subprocess module in Python is used to spawn new processes, connect to their input/output/error pipes, and obtain their return codes.
+It provides a way to interact with the operating system and execute external commands or scripts from within a Python script.
+
+Real life examples -
+
+Running System Commands:
+subprocess.run(['gzip', 'myfile.txt'])
+
+Git Operations:
+subprocess.run(['git', 'clone', 'https://github.com/example/repo.git'])
+
+Database Operations:
+subprocess.run(['mysqldump', '-u', 'username', '-p', 'password', 'database_name'])
+
+System Information Retrieval:
+subprocess.run(['df', '-h'])
+
+Running External Scripts:
+subprocess.run(['bash', 'script.sh'])
+
