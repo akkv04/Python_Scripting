@@ -1,3 +1,0 @@
-writing contents to newly created file
- second line
-appended file
