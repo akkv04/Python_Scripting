@@ -111,4 +111,3 @@ if __name__ == "__main__":
         display_architecture_top_packages(package_files_count)
         print("=====================================")
         print("Execution Finished\n")
-        print("Refactoring Python-final")
