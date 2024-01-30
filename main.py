@@ -86,7 +86,7 @@ def display_architecture_top_packages(package_files_count_check):
 
     print("\nTop 10 Packages:")
     for i, (package, count) in enumerate(sorted_packages[:10], start=1):
-        print(f"{i}. {package.ljust(55)} {count}")
+        print(f"{i}. {package.ljust(42)} {count}")
 
 
 if __name__ == "__main__":
