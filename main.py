@@ -104,7 +104,7 @@ if __name__ == "__main__":
         extract_architecture_contents_file()
         print("=====================================")
 
-        print("\nCounting the files and resp packages")
+        print("\nCounting the files and resp. packages")
         package_files_count = parse_arch_contents_file(contents_path)
         print("\n")
         print("=====================================")
