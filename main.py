@@ -98,7 +98,7 @@ if __name__ == "__main__":
     print("=====================================")
     if download_architecture_contents_file(architecture):
         # if the content file has been downloaded, function will return True
-        print(f"\n Extracting the contents of Contents-{architecture}.gz")
+        print(f"\nExtracting the contents of Contents-{architecture}.gz")
 
         contents_path = f"Contents-{architecture}.gz"
         extract_architecture_contents_file()
