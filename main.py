@@ -41,21 +41,21 @@ def download_architecture_contents_file(input_arch):
 
 def extract_architecture_contents_file():
     try:
-        if not os.path.exists(contents_file_path):
-            print(f"Error: File not found: {contents_file_path}")
+        if not os.path.exists(contents_path):
+            print(f"Error: File not found: {contents_path}")
             return
 
         # Create a new file with the same name without the ".gz" extension
-        contents_file_name = contents_file_path.replace(".gz", "")
+        contents_file_name = contents_path.replace(".gz", "")
 
         # extracting the content and saving to a new file
-        with gzip.open(contents_file_path, "rb") as f_in, open(
+        with gzip.open(contents_path, "rb") as f_in, open(
             contents_file_name, "wb"
         ) as f_out:
             shutil.copyfileobj(f_in, f_out)
 
         print(
-            f"Extracted {contents_file_path} to {contents_file_name} successfully")
+            f"Extracted {contents_path} to {contents_file_name} successfully")
     except Exception as e:
         print(f"An unexpected error occurred: {e}")
 
@@ -100,12 +100,12 @@ if __name__ == "__main__":
         # if the content file has been downloaded, function will return True
         print(f"\n Extracting the contents of Contents-{architecture}.gz")
 
-        contents_file_path = f"Contents-{architecture}.gz"
+        contents_path = f"Contents-{architecture}.gz"
         extract_architecture_contents_file()
         print("=====================================")
 
         print("\nCounting the files and resp packages")
-        package_files_count = parse_arch_contents_file(contents_file_path)
+        package_files_count = parse_arch_contents_file(contents_path)
         print("\n")
         print("=====================================")
         display_architecture_top_packages(package_files_count)
