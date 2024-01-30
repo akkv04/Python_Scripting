@@ -106,7 +106,6 @@ if __name__ == "__main__":
 
         print("\nCounting the files and resp. packages")
         package_files_count = parse_arch_contents_file(contents_path)
-        print("\n")
         print("=====================================")
         display_architecture_top_packages(package_files_count)
         print("=====================================")
