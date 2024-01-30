@@ -20,9 +20,10 @@ def download_architecture_contents_file(architecture):
 
         total_size = int(response.headers.get('content-length', 0))
 
-        # Setting up tqdm to display the progress bar
+        # Setting up tqdm to display the download progress bar 
         tqdm_download_bar = tqdm(total=total_size, unit='B', unit_scale=True)
-
+        
+        #iterates over the response content in chunks of 8192 bytes
         with open(f"Contents-{architecture}.gz", "wb") as f:
             for chunk in response.iter_content(chunk_size=8192):
                 if chunk:
@@ -38,8 +39,6 @@ def download_architecture_contents_file(architecture):
 
         
 def extract_architecture_contents_file(architecture):
-   
-   
     try:
         if not os.path.exists(contents_file_path):
             print(f"Error: File not found: {contents_file_path}")
@@ -47,11 +46,12 @@ def extract_architecture_contents_file(architecture):
 
         # Create a new file with the same name without the ".gz" extension
         contents_file_name = contents_file_path.replace(".gz", "")
-
+        
+        #extracting the content and saving to a new file
         with gzip.open(contents_file_path, 'rb') as f_in, open(contents_file_name, 'wb') as f_out:
             shutil.copyfileobj(f_in, f_out)
 
-        print(f"Successfully decompressed {contents_file_path} to {contents_file_name}")
+        print(f"Extracted {contents_file_path} to {contents_file_name} succesfully")
     except Exception as e:
         print(f"An unexpected error occurred: {e}")
 
@@ -59,6 +59,7 @@ def parse_architecture_contents_file(file_path):
     package_files_count = defaultdict(int)
 
     try:
+        #parsing the contents of a gzipped file line by line and counting occurrences of package names
         with gzip.open(file_path, "rt", encoding="utf-8", errors="ignore") as f:
             for line in f:
                 parts = line.strip().split(" ")
@@ -99,3 +100,4 @@ if __name__ == "__main__":
         print("=====================================")
         display_architecture_top_packages(package_files_count)
         print("=====================================")
+        print("Execution Finished: Success")
